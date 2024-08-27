@@ -114,6 +114,28 @@
                                     Contact
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Choose language
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item " href="#" data-value="en">
+                                                <img width="20" height="20"
+                                                    src="https://img.icons8.com/color/120/great-britain-circular.png"
+                                                    alt="great-britain-circular" />
+                                                English</a></li>
+                                        <li><a class="dropdown-item" href="#" data-value="ar">
+                                                <img width="20" height="20"
+                                                    src="https://img.icons8.com/color/120/saudi-arabia-circular.png"
+                                                    alt="saudi-arabia-circular" />
+                                                Arabic</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -160,6 +182,26 @@
                             </li>
                             <li class="MenuItem {{ request()->routeIS('About') ? 'active' : '' }}"><a href="About" class="linkItem">About</a></li>
                             <li class="MenuItem {{ request()->routeIS('Contact') ? 'active' : '' }}"><a href="Contact" class="linkItem">Contact</a></li>
+                            <li class="MenuItem">
+                                        <div class="dropdown">
+                                            <button class="btn btn-light dropdown-toggle" type="button"
+                                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Choose language
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a class="dropdown-item " href="#" data-value="en">
+                                                        <img width="20" height="20"
+                                                            src="https://img.icons8.com/color/120/great-britain-circular.png"
+                                                            alt="great-britain-circular" />
+                                                        English</a></li>
+                                                <li><a class="dropdown-item" href="#" data-value="ar">
+                                                        <img width="20" height="20"
+                                                            src="https://img.icons8.com/color/120/saudi-arabia-circular.png"
+                                                            alt="saudi-arabia-circular" />
+                                                        Arabic</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
                         </ul>
 
                         <!-- Auth section -->
@@ -274,6 +316,28 @@
     <script src="{{ asset('js/burger-menu.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            const dropdownToggle = document.getElementById('dropdownMenuButton1');
+            const currentUrl = window.location.href;
+
+            if (currentUrl.includes('/en')) {
+                dropdownToggle.textContent = 'English';
+            } else if (currentUrl.includes('/ar')) {
+                dropdownToggle.textContent = 'Arabic';
+            }
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent the default link behavior
+                    const selectedText = this.textContent;
+                    dropdownToggle.textContent = selectedText;
+                });
+            });
+        });
+        
+    </script>
     <script>
         AOS.init({
 

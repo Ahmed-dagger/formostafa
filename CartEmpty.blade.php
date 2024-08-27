@@ -10,8 +10,7 @@
 
 
         </div>
-
-        <div class="row g-3 mb-5">
+            <div class="row g-3 mb-5">
                 <div class="container justify-content-center align-items-center text-center my-5 col-sm-3">
                     <script src="https://cdn.lordicon.com/lordicon.js"></script>
                     <lord-icon src="https://cdn.lordicon.com/taymdfsf.json" trigger="loop" stroke="bold"
@@ -23,11 +22,7 @@
                             courses</button></a>
 
                 </div>
-            
-
-
-
-        </div>
+            </div>
 
     </div>
 
